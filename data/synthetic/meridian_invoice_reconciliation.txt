@@ -1,0 +1,16 @@
+00:00:04 Dana Whitfield: Let's start. What problem are you looking to solve, and who does it affect?
+00:00:15 Jordan Kim: We're on the Accounts Payable team. The issue is that vendor invoices arrive as emails and PDFs and we reconcile them against purchase orders by hand. It takes us about 6 hours per batch and we process around 3,000 invoices per month.
+00:00:41 Sam Okafor: Every morning I export the PO list from SAP to Excel, then I copy each invoice total and PO number into the spreadsheet and flag mismatches. It is tedious and I have to re-key anything the scanner misses. The invoice formats differ by vendor so the columns never line up.
+00:01:10 Dana Whitfield: How many people are doing this, and how often?
+00:01:18 Jordan Kim: There are 12 analysts on the team and this happens every day. Month-end is the worst; we work weekends.
+00:01:32 Dana Whitfield: What have you tried before?
+00:01:38 Jordan Kim: We bought an OCR add-on two years ago. It doesn't help because it reads the numbers but not the context, so the mismatch decisions were still manual. The problem was that nobody trusted the extracted totals without checking them.
+00:02:02 Ravi Patel: Technically the data sits in SAP and a shared mailbox in Outlook. We can get invoices through the mailbox API. The schema for the PO table is stable but the invoice side is unstructured PDFs and the occasional CSV.
+00:02:25 Dana Whitfield: What does good look like?
+00:02:30 Jordan Kim: Good would be a system that matches 90% of invoices automatically and hands the analyst a short list of exceptions with the reason. If we could cut the 6 hours to 1 we would be happy.
+00:02:48 Grace Liu: I'll sponsor this from the controller's office. There is budget in this quarter's plan. Two constraints: we cannot store vendor bank details outside our tenant, and any auto-approval must stay below the audit threshold with a full audit trail.
+00:03:10 Dana Whitfield: Any concerns about the team adopting it?
+00:03:15 Sam Okafor: I'm a little skeptical after the OCR tool. If it just shows me the exceptions with the reason and I can fix the match in one click, I'd use it. Training would help; not everyone is comfortable with new tools.
+00:03:36 Dana Whitfield: Timeline and open questions?
+00:03:40 Grace Liu: Deadline is before the fiscal year-end close in 10 weeks. We need to confirm whether the auditors accept machine-matched invoices below a threshold; that is an open question.
+00:03:58 Dana Whitfield: To recap: 3,000 invoices a month reconciled by hand, 6 hours per batch, 12 analysts, a failed OCR add-on, bank-data and audit constraints, and a 10-week deadline. Thank you.

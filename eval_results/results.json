@@ -1,0 +1,25 @@
+{
+  "provider": "heuristic",
+  "n_transcripts": 3,
+  "field_accuracy": 0.788,
+  "role_accuracy": 1.0,
+  "faithfulness": 0.861,
+  "coverage": 0.963,
+  "dfv_label_match": 1.0,
+  "judge_agreement": 0.958,
+  "judge_kappa": 0.0,
+  "risk_coverage": [
+    {"threshold": 0.3, "coverage": 1.0, "risk": 0.212, "n_auto": 66},
+    {"threshold": 0.4, "coverage": 1.0, "risk": 0.212, "n_auto": 66},
+    {"threshold": 0.5, "coverage": 1.0, "risk": 0.212, "n_auto": 66},
+    {"threshold": 0.6, "coverage": 0.712, "risk": 0.191, "n_auto": 47},
+    {"threshold": 0.7, "coverage": 0.409, "risk": 0.148, "n_auto": 27},
+    {"threshold": 0.8, "coverage": 0.303, "risk": 0.2, "n_auto": 20},
+    {"threshold": 0.9, "coverage": 0.152, "risk": 0.3, "n_auto": 10}
+  ],
+  "per_file": [
+    {"transcript": "harborline_claims_triage.vtt", "format": "vtt", "turns": 16, "field_accuracy": 0.727, "role_accuracy": 1.0, "faithfulness": 0.875, "coverage": 1.0, "dfv_label": "test", "gold_dfv_label": "test", "rubric_pass": 8, "rubric_total": 8, "fields_wrong": ["title", "pain_points", "volume_or_frequency", "data_shape", "constraints", "security_or_data_use"]},
+    {"transcript": "meridian_invoice_reconciliation.txt", "format": "zoom", "turns": 16, "field_accuracy": 0.818, "role_accuracy": 1.0, "faithfulness": 0.875, "coverage": 1.0, "dfv_label": "build", "gold_dfv_label": "build", "rubric_pass": 8, "rubric_total": 8, "fields_wrong": ["title", "pain_points", "users", "data_sources"]},
+    {"transcript": "northfield_survey_cleanup.txt", "format": "teams", "turns": 16, "field_accuracy": 0.818, "role_accuracy": 1.0, "faithfulness": 0.833, "coverage": 0.889, "dfv_label": "build", "gold_dfv_label": "build", "rubric_pass": 8, "rubric_total": 8, "fields_wrong": ["title", "volume_or_frequency", "data_shape", "why_it_failed"]}
+  ]
+}

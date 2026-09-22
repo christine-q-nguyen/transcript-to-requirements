@@ -1,0 +1,16 @@
+[0:05] Dana Whitfield: Thanks for making time. What problem are we here to look at, and how big is it?
+[0:14] Amelia Hart: I'm with the Research Operations team. The challenge is that field surveys come back from 30 partner sites in different spreadsheet layouts, and we clean and merge them by hand before analysis. It takes us about 3 weeks per survey wave and we run 4 waves a year.
+[0:44] Ben Castillo: Right now, I download each site's Excel file from Box, fix the headers so they match our template, recode the categorical fields, and paste everything into a master sheet. It is painful and error prone; last wave we found 400 duplicate rows after the report went out.
+[1:12] Dana Whitfield: Who does this work today?
+[1:16] Amelia Hart: Our field coordinators and two research analysts. About 8 people are involved in cleaning, and roughly 25 researchers use the merged dataset downstream.
+[1:34] Dana Whitfield: What have you tried, and what happened?
+[1:40] Amelia Hart: We built macros in Excel a few years ago. They didn't scale because every site changes its columns and the macros break; previously we also tried asking sites to use our template and they didn't stick to it.
+[2:05] Lucia Ferreira: On the data side the files land in Box and the clean dataset goes to a Snowflake table for the analysts. The headers vary a lot: same question, five different column names. There is no schema anywhere, which is the real gap.
+[2:28] Dana Whitfield: What would success look like?
+[2:33] Amelia Hart: The goal is a clean, merged dataset within 3 days of the last site submitting, with every transformation logged so we can explain it to reviewers. If we could get the coordinators out of Excel for the merge step that would be success.
+[2:55] Dr. Noor Haddad: I'll sponsor it as Research Director; leadership has flagged data quality as a priority for the practice. One constraint: some sites collect health data, so PII must not leave our environment and the retention rules apply.
+[3:15] Dana Whitfield: Adoption concerns?
+[3:19] Ben Castillo: The coordinators are worried the tool will hide the changes it makes. If every recode is visible and reversible, I think the team would trust it.
+[3:35] Dana Whitfield: Timeline and anything still unknown?
+[3:39] Dr. Noor Haddad: We would like this in place by next quarter for the spring wave. We are not sure whether all 30 sites can share raw files under their agreements; that needs to be checked.
+[3:57] Dana Whitfield: To recap: 30 sites, 3 weeks per wave, 8 people cleaning and 25 downstream users, failed macros and template compliance, health-data constraints, spring-wave deadline. Thank you all.

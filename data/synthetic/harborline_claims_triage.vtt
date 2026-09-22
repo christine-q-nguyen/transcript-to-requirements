@@ -1,0 +1,49 @@
+WEBVTT
+
+00:00:03.000 --> 00:00:12.000
+<v Dana Whitfield>Thanks everyone for joining. Let's start with the basics. What problem are you trying to solve, and how big is it?
+
+00:00:12.500 --> 00:00:31.000
+<v Marcus Bell>I'm on the Claims Operations team. The problem is that every incoming claim has to be read and routed by hand before an adjuster can touch it. It takes us about 2 days from receipt to assignment, and we get roughly 1,200 claims per week.
+
+00:00:31.500 --> 00:00:52.000
+<v Priya Raman>Right now, I open each PDF, copy the policy number and loss type into our spreadsheet, then decide whether it goes to property, auto, or the complex queue. It is manual and error prone, and when the format varies from broker to broker I have to re-key half of it.
+
+00:00:52.500 --> 00:01:06.000
+<v Dana Whitfield>Who are the users today, and how many people do this?
+
+00:01:06.500 --> 00:01:20.000
+<v Marcus Bell>Our adjusters and the intake coordinators. About 40 people touch the routing step across two regions, and every one of them does it a little differently.
+
+00:01:20.500 --> 00:01:34.000
+<v Dana Whitfield>What have you tried, and why didn't it work?
+
+00:01:34.500 --> 00:01:58.000
+<v Marcus Bell>Last year we tried a rules engine from a vendor. It didn't work because the rules were brittle; broker forms change columns every quarter and someone had to rebuild the mapping each time. People stopped using it within three months.
+
+00:01:58.500 --> 00:02:14.000
+<v Tomas Lindqvist>From the platform side, the claims land in SharePoint as PDFs and the routing table lives in Snowflake. There is an API for the claims system but the auth token today is shared across three services, which we would need to fix before any automation writes to it.
+
+00:02:14.500 --> 00:02:28.000
+<v Dana Whitfield>What does success look like for you?
+
+00:02:28.500 --> 00:02:48.000
+<v Marcus Bell>Success looks like same-day assignment. If we could get 80% of claims routed automatically with a confidence score, and the adjusters only check the rest, that would cut the 2 days to a few hours.
+
+00:02:48.500 --> 00:03:03.000
+<v Elena Ortiz>I'll sponsor this. It is a priority for the practice this year and there is budget for a pilot, but we must not send claimant PII to any external model. Compliance will want to see how the data is handled.
+
+00:03:03.500 --> 00:03:18.000
+<v Dana Whitfield>Any worries about adoption?
+
+00:03:18.500 --> 00:03:35.000
+<v Priya Raman>Honestly, some adjusters won't use it if they can't see why a claim was routed the way it was. Trust is the issue after the last tool. If it shows the reason and lets me override, I think people would try it.
+
+00:03:35.500 --> 00:03:48.000
+<v Dana Whitfield>Timeline?
+
+00:03:48.500 --> 00:04:00.000
+<v Elena Ortiz>We would like a pilot by the end of Q1. Not sure yet whether the second region can join at the same time; we need to confirm with their director.
+
+00:04:00.500 --> 00:04:12.000
+<v Dana Whitfield>To recap: routing 1,200 claims a week by hand, 2 days to assignment, 40 people, a failed rules engine, PII constraints, and a Q1 pilot. Thanks everyone.

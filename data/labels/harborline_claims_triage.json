@@ -1,0 +1,30 @@
+{
+  "fields": {
+    "title": "Automate routing of incoming claims to adjusters",
+    "requesting_team": "Claims Operations",
+    "problem_statement": "Every incoming claim is read and routed by hand before an adjuster can touch it; about 2 days from receipt to assignment at roughly 1,200 claims per week.",
+    "current_workflow": "Open each PDF, copy the policy number and loss type into a spreadsheet, then decide whether it goes to property, auto, or the complex queue.",
+    "pain_points": "Manual and error prone; formats vary from broker to broker; half the fields are re-keyed.",
+    "users": "Adjusters and intake coordinators",
+    "user_count": 40,
+    "volume_or_frequency": "Roughly 1,200 claims per week",
+    "cycle_time_today": "About 2 days from receipt to assignment",
+    "data_sources": ["SharePoint", "PDF", "Snowflake", "API"],
+    "data_shape": "PDF claim forms whose columns vary by broker; routing table in Snowflake",
+    "systems_in_use": ["SharePoint", "Snowflake"],
+    "what_was_tried": "A vendor rules engine last year",
+    "why_it_failed": "Rules were brittle; broker forms change columns every quarter and the mapping had to be rebuilt; people stopped using it within three months.",
+    "constraints": "Must not send claimant PII to any external model; compliance review of data handling; shared auth token across three services must be fixed before automation writes.",
+    "success_criteria": "Same-day assignment; 80% of claims routed automatically with a confidence score and adjusters check the rest; 2 days to a few hours.",
+    "adoption_risk": "Adjusters won't use it if they can't see why a claim was routed; trust after the last tool; needs the reason and an override.",
+    "security_or_data_use": "Claimant PII must stay internal; a shared auth token across services is a security risk.",
+    "sponsor": "Elena Ortiz",
+    "timeline": "Pilot by the end of Q1",
+    "open_questions": "Whether the second region can join at the same time; confirm with their director.",
+    "glossary": {"PII": "personally identifiable information"}
+  },
+  "speaker_roles": {"Dana Whitfield": "facilitator", "Marcus Bell": "requester", "Priya Raman": "user", "Tomas Lindqvist": "engineer", "Elena Ortiz": "sponsor"},
+  "requirement_turns": [1, 2, 4, 6, 7, 9, 10, 12, 14],
+  "dfv_label": "test",
+  "human_rulings": {"R1_problem_present": true, "R2_users_quantified": true, "R3_cycle_time_present": true, "R4_evidence_on_problem": true, "R5_gaps_listed": true, "R6_no_invented_numbers": true, "R7_latent_need_present": true, "R8_dfv_label_present": true}
+}

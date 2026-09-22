@@ -1,0 +1,31 @@
+{
+  "fields": {
+    "title": "Clean and merge field survey data from partner sites",
+    "requesting_team": "Research Operations",
+    "problem_statement": "Field surveys from 30 partner sites arrive in different spreadsheet layouts and are cleaned and merged by hand; about 3 weeks per wave, 4 waves a year.",
+    "current_workflow": "Download each site's Excel file from Box, fix the headers to match the template, recode the categorical fields, paste everything into a master sheet.",
+    "pain_points": "Painful and error prone; 400 duplicate rows found after a report went out; headers vary.",
+    "users": "Field coordinators and research analysts; about 25 researchers use the merged dataset downstream",
+    "user_count": 8,
+    "volume_or_frequency": "30 sites per wave; 4 waves a year",
+    "cycle_time_today": "About 3 weeks per survey wave",
+    "data_sources": ["Box", "Excel", "Snowflake"],
+    "data_shape": "Same question under five different column names; no schema anywhere",
+    "systems_in_use": ["Box", "Excel", "Snowflake"],
+    "what_was_tried": "Excel macros a few years ago; asking sites to use the template",
+    "why_it_failed": "Macros break when sites change their columns; sites did not stick to the template.",
+    "constraints": "Some sites collect health data; PII must not leave the environment; retention rules apply.",
+    "success_criteria": "Clean merged dataset within 3 days of the last site submitting; every transformation logged for reviewers; coordinators out of Excel for the merge step.",
+    "adoption_risk": "Coordinators worried the tool will hide the changes it makes; every recode must be visible and reversible.",
+    "security_or_data_use": "Health data and PII must stay inside the environment; retention rules apply.",
+    "sponsor": "Dr. Noor Haddad",
+    "timeline": "By next quarter, for the spring wave",
+    "open_questions": "Whether all 30 sites can share raw files under their agreements.",
+    "glossary": {"PII": "personally identifiable information"}
+  },
+  "speaker_roles": {"Dana Whitfield": "facilitator", "Amelia Hart": "requester", "Ben Castillo": "user", "Lucia Ferreira": "engineer", "Dr. Noor Haddad": "sponsor"},
+  "requirement_turns": [1, 2, 4, 6, 7, 9, 10, 12, 14],
+  "dfv_label": "build",
+  "human_rulings": {"R1_problem_present": true, "R2_users_quantified": true, "R3_cycle_time_present": true, "R4_evidence_on_problem": true, "R5_gaps_listed": true, "R6_no_invented_numbers": true, "R7_latent_need_present": false, "R8_dfv_label_present": true},
+  "human_rulings_note": "R7 ruled false: five generic latent needs fired; a reviewer judged them boilerplate rather than a specific inferred need for this case."
+}

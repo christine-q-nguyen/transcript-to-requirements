@@ -1,0 +1,30 @@
+{
+  "fields": {
+    "title": "Automate vendor invoice reconciliation against purchase orders",
+    "requesting_team": "Accounts Payable",
+    "problem_statement": "Vendor invoices arrive as emails and PDFs and are reconciled against purchase orders by hand; about 6 hours per batch, around 3,000 invoices per month.",
+    "current_workflow": "Every morning export the PO list from SAP to Excel, copy each invoice total and PO number into the spreadsheet, flag mismatches, re-key what the scanner misses.",
+    "pain_points": "Tedious; re-keying what the scanner misses; invoice formats differ by vendor so the columns never line up; month-end weekends.",
+    "users": "Accounts payable analysts",
+    "user_count": 12,
+    "volume_or_frequency": "Around 3,000 invoices per month; every day; month-end peaks",
+    "cycle_time_today": "About 6 hours per batch",
+    "data_sources": ["SAP", "Outlook", "PDF", "CSV", "Excel", "Email"],
+    "data_shape": "PO table schema is stable; invoices are unstructured PDFs and the occasional CSV; formats differ by vendor",
+    "systems_in_use": ["SAP", "Outlook", "Excel"],
+    "what_was_tried": "An OCR add-on two years ago",
+    "why_it_failed": "It reads the numbers but not the context, so mismatch decisions stayed manual; nobody trusted the extracted totals without checking.",
+    "constraints": "Cannot store vendor bank details outside the tenant; auto-approval must stay below the audit threshold with a full audit trail.",
+    "success_criteria": "Match 90% of invoices automatically; hand the analyst a short exception list with reasons; cut 6 hours to 1.",
+    "adoption_risk": "Skeptical after the OCR tool; wants exceptions with the reason and a one-click fix; training would help.",
+    "security_or_data_use": "Vendor bank details must stay inside the tenant; full audit trail required.",
+    "sponsor": "Grace Liu",
+    "timeline": "Before the fiscal year-end close in 10 weeks",
+    "open_questions": "Whether the auditors accept machine-matched invoices below a threshold.",
+    "glossary": {"PO": "purchase order", "OCR": "optical character recognition", "SAP": ""}
+  },
+  "speaker_roles": {"Dana Whitfield": "facilitator", "Jordan Kim": "requester", "Sam Okafor": "user", "Ravi Patel": "engineer", "Grace Liu": "sponsor"},
+  "requirement_turns": [1, 2, 4, 6, 7, 9, 10, 12, 14],
+  "dfv_label": "build",
+  "human_rulings": {"R1_problem_present": true, "R2_users_quantified": true, "R3_cycle_time_present": true, "R4_evidence_on_problem": true, "R5_gaps_listed": true, "R6_no_invented_numbers": true, "R7_latent_need_present": true, "R8_dfv_label_present": true}
+}
