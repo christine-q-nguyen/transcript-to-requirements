@@ -1,5 +1,7 @@
 # transcript-to-requirements (t2r)
 
+[![tests](https://github.com/christine-q-nguyen/transcript-to-requirements/actions/workflows/tests.yml/badge.svg)](https://github.com/christine-q-nguyen/transcript-to-requirements/actions/workflows/tests.yml) ![license: MIT](https://img.shields.io/badge/license-MIT-blue) ![python: 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
+
 Turn a discovery-call transcript into a structured intake record, DFV/RICE scores, and Jira-ready stories — with **evidence on every field**, **per-field confidence**, **three human approval gates**, and an **evaluation harness** that publishes the risk–coverage curve instead of an accuracy headline.
 
 Standard-library Python at the core (runs offline). LLM providers and an MCP server are optional extras. Synthetic data only; MIT licensed.
@@ -12,9 +14,11 @@ transcript ──► ingest ──► classify ──► [Gate 1] ──► extr
 ## Why this exists
 Requirements from discovery calls take weeks because someone has to re-listen, re-type, and re-argue. The pattern here is the one I ran inside a large firm's AI enablement team: encode the discovery method itself, keep the human decision inside the workflow (at the kickoff and every handoff), and write the definition of "good" down before anyone argues about a demo. This is a from-scratch public version; it contains no proprietary code, prompts, data, or system names.
 
+The story behind it is a [case study on my site](https://christinenguyen.me/work/case-artifact.html). Its sister project, [portfolio-from-evidence](https://github.com/christine-q-nguyen/portfolio-from-evidence), applies the same evidence-first idea to a résumé.
+
 ## Quick start
 ```bash
-git clone https://github.com/<you>/transcript-to-requirements && cd transcript-to-requirements
+git clone https://github.com/christine-q-nguyen/transcript-to-requirements && cd transcript-to-requirements
 pip install -e ".[dev]"                 # stdlib core + pytest
 
 # run the pipeline on a synthetic call, non-interactively (the three gates auto-approve)
@@ -61,7 +65,7 @@ The escalation rate is a design parameter. Human attention is the scarce resourc
 | 0.8 | 30% | 20% |
 | 0.9 | 15% | 30% |
 
-Three honest readings. The curve is **not monotone** — the heuristic over-trusts sentences that contain a number, so risk rises again at 0.9; publish the curve and pick 0.7 for this baseline. **κ = 0 at 96% agreement** means the offline rubric judge never says no; validate the judge before trusting the rubric. Most field misses are **paraphrase misses** (the extractor quotes, the gold label summarizes) — faithfulness stays high because it never invents. Full table and per-transcript breakdown: [`eval_results/RESULTS.md`](eval_results/RESULTS.md). Method: [`docs/EVALS.md`](docs/EVALS.md).
+CI re-runs the eval on every push and fails if these numbers drift from [`eval_results/results.json`](eval_results/results.json). Three honest readings. The curve is **not monotone** — the heuristic over-trusts sentences that contain a number, so risk rises again at 0.9; publish the curve and pick 0.7 for this baseline. **κ = 0 at 96% agreement** means the offline rubric judge never says no; validate the judge before trusting the rubric. Most field misses are **paraphrase misses** (the extractor quotes, the gold label summarizes) — faithfulness stays high because it never invents. Full table and per-transcript breakdown: [`eval_results/RESULTS.md`](eval_results/RESULTS.md). Method: [`docs/EVALS.md`](docs/EVALS.md).
 
 ## Providers
 | Provider | Set | Notes |

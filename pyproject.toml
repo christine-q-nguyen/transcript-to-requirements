@@ -13,6 +13,10 @@ requires-python = ">=3.10"
 dependencies = []
 keywords = ["requirements", "transcripts", "agents", "mcp", "human-in-the-loop", "evaluation"]
 
+[project.urls]
+Homepage = "https://christinenguyen.me/work/case-artifact.html"
+Repository = "https://github.com/christine-q-nguyen/transcript-to-requirements"
+
 [project.optional-dependencies]
 anthropic = ["anthropic>=0.40"]
 openai = ["openai>=1.40"]

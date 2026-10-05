@@ -1,0 +1,21 @@
+name: tests
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: The published eval still reproduces
+        run: |
+          t2r eval --out "$RUNNER_TEMP/eval" > /dev/null
+          python -c "import json, sys; a = json.load(open('eval_results/results.json')); b = json.load(open(sys.argv[1])); sys.exit(0 if a == b else 'eval results drifted from eval_results/results.json')" "$RUNNER_TEMP/eval/results.json"
