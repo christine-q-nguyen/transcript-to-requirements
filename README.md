@@ -2,7 +2,11 @@
 
 [![tests](https://github.com/christine-q-nguyen/transcript-to-requirements/actions/workflows/tests.yml/badge.svg)](https://github.com/christine-q-nguyen/transcript-to-requirements/actions/workflows/tests.yml) ![license: MIT](https://img.shields.io/badge/license-MIT-blue) ![python: 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
 
-Turn a discovery-call transcript into a structured intake record, DFV/RICE scores, and Jira-ready stories — with **evidence on every field**, **per-field confidence**, **three human approval gates**, and an **evaluation harness** that publishes the risk–coverage curve instead of an accuracy headline.
+Record one discovery meeting. Get back what your developers need to start building: the problem, the users, the data, what good looks like, and Jira-ready stories with acceptance criteria, each tied to the quote it came from. It's the method that took a large firm's AI intake from four to six months to about a week, rebuilt from scratch so your team can use it.
+
+- **Get up to speed on a new domain** from one conversation instead of weeks of calls.
+- **Developers start from a draft,** not a blank page, and you learn early whether you can build it yourself.
+- **A person stays in charge:** three yeses before anything is filed, and anything the tool isn't sure about goes to you.
 
 Standard-library Python at the core (runs offline). LLM providers and an MCP server are optional extras. Synthetic data only; MIT licensed.
 
@@ -12,9 +16,9 @@ transcript ──► ingest ──► classify ──► [Gate 1] ──► extr
 ```
 
 ## Why this exists
-Requirements from discovery calls take weeks because someone has to re-listen, re-type, and re-argue. The pattern here is the one I ran inside a large firm's AI enablement team: encode the discovery method itself, keep the human decision inside the workflow (at the kickoff and every handoff), and write the definition of "good" down before anyone argues about a demo. This is a from-scratch public version; it contains no proprietary code, prompts, data, or system names.
+Requirements from discovery calls take weeks because someone has to re-listen, re-type, and re-argue. I was sure the fix was to encode the discovery method itself, keep a person's decision inside the workflow (at the kickoff and every handoff), and write down what good looks like before anyone argues about a demo. I ran that pattern inside a large firm's AI enablement team. This is a from-scratch public version with no proprietary code, prompts, data, or system names.
 
-The story behind it is a [case study on my site](https://christinenguyen.me/work/case-artifact.html). Its sister project, [portfolio-from-evidence](https://github.com/christine-q-nguyen/portfolio-from-evidence), applies the same evidence-first idea to a résumé.
+The story behind it is a [case study on my site](https://christinenguyen.me/work/case-artifact.html). Its sister project, [portfolio-from-evidence](https://github.com/christine-q-nguyen/portfolio-from-evidence), is a job search in a box built on the same evidence-first idea.
 
 ## Quick start
 ```bash
